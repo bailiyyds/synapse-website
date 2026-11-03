@@ -1,0 +1,6 @@
+'use client';
+import {useState} from 'react';
+import {copy} from '@/lib/constants';
+const positions=[[16,25],[48,12],[80,27],[19,74],[50,49],[80,74],[50,90]];
+const edges=[[0,1],[0,3],[1,4],[2,4],[3,4],[4,5],[5,6],[4,6],[1,2]];
+export default function CapabilityGraph(){const [active,setActive]=useState(4);return <section id="capabilities" className="capabilities" aria-labelledby="cap-title"><div className="section-head"><p className="eyebrow">02 / 能力图谱</p><h2 id="cap-title">能力不是孤岛。</h2></div><div className="graph-layout"><div className="graph"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">{edges.map(([a,b])=><line key={a+'-'+b} x1={positions[a][0]} y1={positions[a][1]} x2={positions[b][0]} y2={positions[b][1]} className={a===active||b===active?'active':''}/>)}</svg>{copy.nodes.map(([name],i)=><button key={name} onPointerEnter={()=>setActive(i)} onFocus={()=>setActive(i)} onClick={()=>setActive(i)} aria-pressed={active===i} style={{left:positions[i][0]+'%',top:positions[i][1]+'%'}}><span className={i===active?'active':''}>0{i+1}</span>{name}</button>)}</div><div className="graph-detail"><small>连接协议 / 0{active+1}</small><h3>{copy.nodes[active][0]}<span>↗</span></h3><p>{copy.nodes[active][1]}</p><hr/><small>选择一个节点，探索能力之间的关系。</small></div></div></section>}

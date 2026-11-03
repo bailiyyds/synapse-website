@@ -1,0 +1,3 @@
+import {copy} from '@/lib/constants';
+export function Header(){return <header><a className="brand" href="#">✳ <span>{copy.brand}</span><small>SYNAPSE®</small></a><nav><a href="#manifesto">理念</a><a href="#capabilities">能力</a><a href="#scenarios">实践</a></nav><a href="#access">进入 <span>↗</span></a></header>}
+export function Footer(){return <footer><div className="footer-grid"><div><h3>{copy.brand}</h3><p>智能，是连接本身。</p></div><div>探索<a href="#manifesto">我们的理念</a><a href="#capabilities">能力图谱</a></div><div>实践<a href="#scenarios">创造场景</a><a href="#timeline">演进路径</a></div><div>连接<a href="#access">申请接入 ↗</a></div></div><div className="footer-bottom"><span>© 2026 智创未来</span><span>系统运行正常 <i/></span></div></footer>}
